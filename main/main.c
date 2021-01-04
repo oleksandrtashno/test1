@@ -1,27 +1,47 @@
 #include <stdio.h>
-
-#include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "esp_event_loop.h"
+#include "esp_wifi.h"
+#include "nvs_flash.h"
+#include "esp_log.h"
+#include "esp_http_client.h"
+#include "protocol_examples_common.h"
+#include "freertos/task.h"
 
-#define PIN GPIO_NUM_2
+#define AX_APs 20
 
-// see https://www.learnesp32.com/3_blinkey for details
-void blinky(void *params)
+static esp_err_t event_handler(void *ctx, system_event_t *event)
 {
-	gpio_pad_select_gpio(PIN);
-	gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
-	int isOn = 0;
+	return ESP_OK;
+}
+
+void wifi_init()
+{
+	ESP_ERROR_CHECK(nvs_flash_init());
+	tcpip_adapter_init();
+	ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
+}
+
+void scan_wifi_aps(void *params)
+{
+	wifi_init();
+
 	while (true)
 	{
-		isOn = !isOn;
-		gpio_set_level(PIN, isOn);
-		vTaskDelay(1000 / portTICK_PERIOD_MS);
+		vTaskDelay(pdMS_TO_TICKS(1000));
 	}
 }
+
 void app_main(void)
 {
-  printf("Hello woferfeertrfrld!\n");
-  
-  xTaskCreate(&blinky, "blink led", 2048, NULL, 2, NULL);
+	//uint32_t stack_size = uxTaskGetStackHighWaterMark(NULL);
+	uint32_t stack_size = 32768;
+
+	printf("Allocating %d bytes for main task\n", stack_size);
+
+	//xTaskCreate(&heartbeat, "heartbeat", 2048, NULL, 1, NULL);
+	//xTaskCreate(&scan_wifi_aps, "scan wifi aps", stack_size, NULL, 2, NULL);
 }

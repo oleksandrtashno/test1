@@ -8,6 +8,20 @@
   "files.associations": {
     "*.md": "markdown",
     "*.mdx": "tdx",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "*.tcc": "cpp",
+    "complex": "cpp",
+    "optional": "cpp",
+    "cmath": "cpp",
+    "random": "cpp",
+    "future": "cpp",
+    "iomanip": "cpp",
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "stdexcept": "cpp",
+    "streambuf": "cpp",
+    "typeinfo": "cpp",
+    "*.ipp": "cpp"
   }
 }

@@ -68,4 +68,5 @@
 /home/alex/esp/workstation/test1/build/esp-idf/spiffs/libspiffs.a
 /home/alex/esp/workstation/test1/build/esp-idf/ulp/libulp.a
 /home/alex/esp/workstation/test1/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/home/alex/esp/workstation/test1/build/esp-idf/protocol_examples_common/libprotocol_examples_common.a
 /home/alex/esp/workstation/test1/build/esp-idf/main/libmain.a

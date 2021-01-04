@@ -111,6 +111,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/alex/esp/workstation/test1/build/esp-idf/tinyusb/cmake_install.cmake")
   include("/home/alex/esp/workstation/test1/build/esp-idf/ulp/cmake_install.cmake")
   include("/home/alex/esp/workstation/test1/build/esp-idf/wifi_provisioning/cmake_install.cmake")
+  include("/home/alex/esp/workstation/test1/build/esp-idf/protocol_examples_common/cmake_install.cmake")
   include("/home/alex/esp/workstation/test1/build/esp-idf/main/cmake_install.cmake")
 
 endif()

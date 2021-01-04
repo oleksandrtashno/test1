@@ -23,5 +23,6 @@
     "streambuf": "cpp",
     "typeinfo": "cpp",
     "*.ipp": "cpp"
-  }
+  },
+  "C_Cpp.errorSquiggles": "Disabled"
 }
